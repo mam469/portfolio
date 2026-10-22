@@ -1,6 +1,6 @@
 # Maharab Mohammed's Portfolio
 
-A personal portfolio for my Electrical and Computer Engineering Technology studies at New Jersey Institute of Technology and my goal of becoming a computer hardware engineer.
+A personal portfolio for my Electrical and Computer Engineering Technology studies at New Jersey Institute of Technology. My goals are to build strong technical skills through class labs, join a hands-on engineering club, and eventually work for a tech company helping design and test power or smart devices.
 
 ## View the website
 

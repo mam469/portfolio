@@ -58,6 +58,7 @@ dd { margin: 0; font-weight: 600; }
 .interest-number { font-size: 0.75rem; color: var(--green); }
 h3 { margin-block: 25px 10px; font-size: 1.25rem; font-weight: 600; }
 .interest-list p { margin-bottom: 0; }
+.interest-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin-bottom: 16px; }
 .site-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border); padding-block: 24px; font-size: 0.8rem; }
 .site-footer p { margin: 0; }
 @media (min-width: 760px) {

@@ -10,7 +10,7 @@ GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification p
 
 ## Current progress
 
-Projects is available in every page's navigation. Its first entry is Space Race, a Python/Pyglet desktop game, with ship artwork from the supplied project. The description was checked against its source; the game has not been run or compatibility-tested. Two more projects are still needed for the assignment.
+Projects is available in every page's navigation. Its first entry is Space Race, with a playable JavaScript/Canvas adaptation of the supplied Python/Pyglet game. Start a round, dodge asteroids with arrow keys or A/D while the canvas has focus, or hold the on-screen movement buttons. A collision ends the round; restart to try again. The best score lasts for the page session. Game logic was checked with simulated inputs; browser rendering and live play remain unverified. The original Python game has not been run. Two more projects are still needed for the assignment.
 
 The Contact page displays my approved public email address with a clickable email link. Contact is available in the navigation on every page.
 

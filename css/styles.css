@@ -148,6 +148,12 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .project-art figcaption, .project-note { font-size: 0.8rem; }
 .project-art figcaption { text-align: center; }
 .project-note { margin-top: 18px; overflow-wrap: anywhere; }
+.playable-game { margin-top: 28px; text-align: center; }
+#space-race { display: block; width: 100%; max-width: 800px; height: auto; margin: 20px auto; border: 1px solid var(--green); border-radius: 16px; }
+#space-race:focus-visible, button:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
+.game-controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.game-controls button { font-family: inherit; cursor: pointer; min-height: 44px; }
+.game-controls [data-move] { touch-action: none; user-select: none; }
 @media (min-width: 900px) { .project-card { grid-template-columns: 1fr 1.5fr; } }
 @media (max-height: 720px) and (min-width: 760px) {
   .compact-page .site-header { margin-top: 16px; }

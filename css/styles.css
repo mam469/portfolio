@@ -20,6 +20,7 @@ body { margin: 0; min-height: 100vh; background-color: var(--background); color:
 .about-story { max-width: 760px; padding-block: 64px; }
 .content-page { padding-block: 56px; }
 .page-note { max-width: 65ch; margin-block: 28px; }
+.contact-email { display: inline-block; max-width: 100%; overflow-wrap: anywhere; font-size: clamp(1rem, 3vw, 1.5rem); padding-block: 12px; }
 .home-page {
   background-color: var(--background);
   background-image: linear-gradient(90deg, rgba(3, 7, 4, 0.94), rgba(3, 7, 4, 0.76)), url("../images/voxel-workshop.jpg");

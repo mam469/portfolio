@@ -12,4 +12,4 @@ GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification p
 
 The Home and About Me pages introduce me, my education, career goals, and interests with a responsive pastel green design. Both pages link to each other and the Home page's Education and Interests sections. The About Me page explains my curiosity about how computers and smart devices work. Projects, Skills, and Contact pages and JavaScript interactions are future tasks.
 
-Built with plain HTML and CSS, with assistance from Codex. The decorative hardware illustration uses CSS and requires no external assets.
+Built with plain HTML and CSS, with assistance from Codex. The Home page's voxel workshop hero image was generated with OpenAI image generation to reflect my technology and Minecraft interests; it is an illustration, not a photograph of my work. The cream MM favicon on forest green is an SVG.

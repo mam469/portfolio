@@ -20,15 +20,15 @@ Ask me for missing personal details, project content, screenshots, and contact i
 
 ## Design direction
 
-Use a dark technology-inspired style with vibrant greens, generous spacing, and consistent layouts across all pages. The design direction is:
+Use a hacker-inspired terminal style with near-black backgrounds, electric green headings and accents, monospace type, angular panels, generous spacing, and consistent layouts across all pages. The design direction is:
 
-- Background: near-black forest (`#08120E`). Use the voxel workshop illustration as the Home page background with a dark gradient overlay.
-- Main text: pale mint (`#EAF8EF`).
-- Accent and links: vibrant green (`#68F59A`), with clearly visible hover and keyboard focus states. Use near-black text on filled green buttons.
-- Surfaces: deep green (`#10251A`), raised green (`#163322`), and dark emerald (`#102C25`), with muted green borders (`#345A42`) and rounded corners.
+- Background: near-black (`#030704`). Use the voxel workshop illustration as the Home page background with a strong dark gradient overlay.
+- Main text: pale green (`#CFFFD7`).
+- Accent and links: electric green (`#39FF14`), with clearly visible hover and keyboard focus states. Use near-black text on filled green buttons.
+- Surfaces: black-green (`#071009`, `#0A170B`, `#09130A`), with green borders (`#287D25`), small corner radii, and subtle green panel shadows.
 - Keep content panels opaque so text remains readable over the Home page background. The background image is decorative; keep essential information in HTML.
 - Use bright green selectively for headings, links, buttons, and small accents. Avoid glowing body text and excessive effects.
-- Fonts: a local system stack such as `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`; no external font dependency.
+- Fonts: a local monospace stack, `"Cascadia Code", Consolas, "Courier New", monospace`; no external font dependency.
 - Layout: a centered content area, readable line lengths, and project cards that stack on small screens.
 
 Verify contrast for actual color combinations. Use mobile-first CSS and media queries so every page works on phone and laptop screens without horizontal scrolling. Update this file if we change the design.

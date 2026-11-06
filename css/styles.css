@@ -109,3 +109,23 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .site-header nav { justify-content: center; column-gap: clamp(12px, 3vw, 28px); row-gap: 2px; }
 .site-header nav a { font-size: clamp(0.75rem, 2.6vw, 0.9rem); padding-block: 10px; }
 .site-footer a { padding-block: 10px; }
+
+/* Reduce unused space without clipping content on small screens or zoom. */
+.compact-page .about-story { max-width: 850px; padding-block: 28px; }
+.compact-page .content-page { padding-block: 28px; }
+.compact-page .interests { padding-block: 0; }
+.compact-page h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 18px; }
+.compact-page .eyebrow { margin-bottom: 12px; }
+.compact-page .introduction { max-width: 70ch; font-size: 1rem; margin-bottom: 18px; }
+.compact-page .education { padding: 24px; }
+.compact-page .education-grid { gap: 24px; }
+.compact-page dl > div { padding-block: 10px; }
+.compact-page .page-note { margin-block: 18px 0; }
+.compact-page .interest-list { margin-top: 20px; }
+.compact-page .interest-list li { padding: 20px; }
+.compact-page h3 { margin-top: 16px; }
+@media (max-height: 720px) and (min-width: 760px) {
+  .compact-page .site-header { margin-top: 16px; }
+  .compact-page .content-page, .compact-page .about-story { padding-block: 20px; }
+  .compact-page h1 { font-size: 2.5rem; }
+}

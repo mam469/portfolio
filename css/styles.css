@@ -12,7 +12,7 @@
   line-height: 1.6;
 }
 * { box-sizing: border-box; }
-body { margin: 0; }
+body { margin: 0; min-height: 100vh; background-color: var(--background); color: var(--text); }
 .home-page {
   background-color: var(--background);
   background-image: linear-gradient(90deg, rgba(8, 18, 14, 0.92), rgba(8, 18, 14, 0.55)), url("../images/voxel-workshop.jpg");

@@ -133,6 +133,9 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .centered-page dl { width: min(100%, 760px); margin-inline: auto; }
 .centered-page .interest-list { text-align: center; }
 .centered-page .contact-email { flex-shrink: 0; }
+.centered-text-page main, .centered-text-page main section { text-align: center; }
+.centered-text-page main h1, .centered-text-page main p { margin-inline: auto; }
+.centered-text-page .about-story { width: 100%; }
 @media (max-height: 720px) and (min-width: 760px) {
   .compact-page .site-header { margin-top: 16px; }
   .compact-page .content-page, .compact-page .about-story { padding-block: 20px; }

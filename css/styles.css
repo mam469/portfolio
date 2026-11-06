@@ -124,6 +124,15 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .compact-page .interest-list { margin-top: 20px; }
 .compact-page .interest-list li { padding: 20px; }
 .compact-page h3 { margin-top: 16px; }
+.centered-page { display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh; }
+.centered-page main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.centered-page .about-story, .centered-page .introduction, .centered-page .page-note { margin-inline: auto; }
+.centered-page .education, .centered-page .interests { width: 100%; }
+.centered-page .education-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.centered-page .education-grid h1 { margin-bottom: 12px; }
+.centered-page dl { width: min(100%, 760px); margin-inline: auto; }
+.centered-page .interest-list { text-align: center; }
+.centered-page .contact-email { flex-shrink: 0; }
 @media (max-height: 720px) and (min-width: 760px) {
   .compact-page .site-header { margin-top: 16px; }
   .compact-page .content-page, .compact-page .about-story { padding-block: 20px; }

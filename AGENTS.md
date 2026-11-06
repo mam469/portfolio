@@ -33,6 +33,7 @@ Use a hacker-inspired terminal style with near-black backgrounds, electric green
 - Use bright green selectively for headings, links, buttons, and small accents. Avoid glowing body text and excessive effects.
 - Fonts: a local monospace stack, `"Cascadia Code", Consolas, "Courier New", monospace`; no external font dependency.
 - Layout: a centered content area, readable line lengths, and project cards that stack on small screens.
+- About Me, Education, Interests, and Contact center their content and text horizontally, and center the main content vertically below navigation when viewport space allows. Preserve natural scrolling when content exceeds the viewport.
 
 Verify contrast for actual color combinations. Use mobile-first CSS and media queries so every page works on phone and laptop screens without horizontal scrolling. Update this file if we change the design.
 

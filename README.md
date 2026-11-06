@@ -12,6 +12,6 @@ GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification p
 
 The shared visual theme is hacker-inspired: near-black backgrounds, electric green headings and borders, monospace type, and terminal-style panels. Stylesheet URLs include a version to refresh cached styling after this redesign.
 
-The Home and About Me pages introduce me, my education, career goals, and interests with a responsive dark design and vibrant green accents. The voxel workshop illustration forms the Home page background, with dark panels keeping content readable. Both pages link to each other and the Home page's Education and Interests sections. The About Me page explains my curiosity about how computers and smart devices work. Projects, Skills, and Contact pages and JavaScript interactions are future tasks.
+Home now shows only a centered greeting over the voxel background. About Me contains my background story, Education contains my studies and career goals, and Interests contains technology, soccer, and Minecraft. Every page links to these four pages. Projects, Skills, Contact, and JavaScript interactions are future tasks.
 
 Built with plain HTML and CSS, with assistance from Codex. The Home page's voxel workshop hero image was generated with OpenAI image generation to reflect my technology and Minecraft interests; it is an illustration, not a photograph of my work. The cream MM favicon on forest green is an SVG.

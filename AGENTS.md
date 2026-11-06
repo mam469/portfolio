@@ -10,7 +10,9 @@ Work on one small, requested task at a time. Do not build the entire website in 
 
 Create five separate pages, with all five linked from the navigation on every page:
 
-- `index.html`: Home, with a brief introduction and clear links to the other pages.
+- `index.html`: Home, with only the centered greeting “Hello, I’m Maharab Mohammed” in the main content and navigation to the other pages.
+- `education.html`: Education and career goals, including my school, major, labs, and club aspirations.
+- `interests.html`: Technology, soccer, and Minecraft interests.
 - `about.html`: About Me, with my background, education, and interests.
 - `projects.html`: At least three real projects, each with a description, image or screenshot, and a relevant link when available. Class projects count.
 - `skills.html`: Technical skills and honest descriptions of my proficiency.

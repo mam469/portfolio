@@ -13,6 +13,13 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; min-height: 100vh; background-color: var(--background); color: var(--text); }
+.home-page { display: flex; flex-direction: column; }
+.home-intro { flex: 1; display: grid; place-items: center; text-align: center; padding-block: 60px; }
+.home-intro h1 { margin: 0; padding: clamp(20px, 4vw, 44px); background: rgba(3, 7, 4, 0.9); border: 1px solid var(--border); }
+.home-intro h1 span { display: block; }
+.about-story { max-width: 760px; padding-block: 64px; }
+.content-page { padding-block: 56px; }
+.page-note { max-width: 65ch; margin-block: 28px; }
 .home-page {
   background-color: var(--background);
   background-image: linear-gradient(90deg, rgba(3, 7, 4, 0.94), rgba(3, 7, 4, 0.76)), url("../images/voxel-workshop.jpg");

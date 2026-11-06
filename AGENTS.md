@@ -20,14 +20,14 @@ Ask me for missing personal details, project content, screenshots, and contact i
 
 ## Design direction
 
-Use a soft, springtime style with pastel greens, generous spacing, and consistent layouts across all pages. Green should be a prominent part of the backgrounds and surfaces, creating a calm, easy-on-the-eyes feel. The design direction is:
+Use a dark technology-inspired style with vibrant greens, generous spacing, and consistent layouts across all pages. The design direction is:
 
-- Background: very pale mint (`#F1F8EF`).
-- Main text: deep forest green (`#243D2E`), keeping body copy dark and readable.
-- Accent and links: leafy green (`#356B46`), with clearly visible hover and keyboard focus states. Use cream text (`#FFFEF7`) on filled green buttons.
-- Surfaces: alternate soft sage (`#E1EEDC`), pastel mint (`#E5F3E8`), and warm cream (`#FFFEF7`) for cards and sections, with subtle sage borders and softly rounded corners.
-- Small decorative accents: pale butter yellow (`#F6EDC9`) or blush (`#F3E3E0`) used sparingly to complement the greens.
-- Keep shadows gentle and avoid neon greens or harsh color blocks. Pastel colors belong on backgrounds and decorations; use dark greens for text and functional controls.
+- Background: near-black forest (`#08120E`). Use the voxel workshop illustration as the Home page background with a dark gradient overlay.
+- Main text: pale mint (`#EAF8EF`).
+- Accent and links: vibrant green (`#68F59A`), with clearly visible hover and keyboard focus states. Use near-black text on filled green buttons.
+- Surfaces: deep green (`#10251A`), raised green (`#163322`), and dark emerald (`#102C25`), with muted green borders (`#345A42`) and rounded corners.
+- Keep content panels opaque so text remains readable over the Home page background. The background image is decorative; keep essential information in HTML.
+- Use bright green selectively for headings, links, buttons, and small accents. Avoid glowing body text and excessive effects.
 - Fonts: a local system stack such as `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`; no external font dependency.
 - Layout: a centered content area, readable line lengths, and project cards that stack on small screens.
 

@@ -29,7 +29,7 @@ Use a hacker-inspired terminal style with near-black backgrounds, electric green
 - Accent and links: electric green (`#39FF14`), with clearly visible hover and keyboard focus states. Use near-black text on filled green buttons.
 - Surfaces: black-green (`#071009`, `#0A170B`, `#09130A`), with green borders (`#287D25`), small corner radii, and subtle green panel shadows.
 - Keep content panels opaque so text remains readable over the Home page background. The background image is decorative; keep essential information in HTML.
-- Home is an exception to panel styling: show the centered greeting without a box, using a subtle text shadow over the darkened background. Its header contains only centered navigation in a pill-shaped bar, with no name badge.
+- Home is an exception to panel styling: show the centered greeting without a box, using a subtle text shadow over the darkened background. Every page has centered navigation in a pill-shaped header with no name badge, plus a matching pill-shaped footer containing copyright and a back-to-top link.
 - Use bright green selectively for headings, links, buttons, and small accents. Avoid glowing body text and excessive effects.
 - Fonts: a local monospace stack, `"Cascadia Code", Consolas, "Courier New", monospace`; no external font dependency.
 - Layout: a centered content area, readable line lengths, and project cards that stack on small screens.

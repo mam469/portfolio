@@ -10,6 +10,8 @@ GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification p
 
 ## Current progress
 
+Projects is available in every page's navigation. Its first entry is Space Race, a Python/Pyglet desktop game, with ship artwork from the supplied project. The description was checked against its source; the game has not been run or compatibility-tested. Two more projects are still needed for the assignment.
+
 The Contact page displays my approved public email address with a clickable email link. Contact is available in the navigation on every page.
 
 The shared visual theme is hacker-inspired: near-black backgrounds, electric green headings and borders, monospace type, and terminal-style panels. Stylesheet URLs include a version to refresh cached styling after this redesign.

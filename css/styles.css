@@ -141,6 +141,14 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 #education.rounded-panel { max-width: 760px; margin-inline: auto; }
 .education.contact-panel { max-width: 680px; margin-inline: auto; }
 .rounded-panel > :last-child { margin-bottom: 0; }
+.projects-page main > h1, .projects-page main > .eyebrow { text-align: center; }
+.project-card { display: grid; gap: 28px; margin-top: 32px; }
+.project-art { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; margin: 0; padding: 28px; background: #030704; border: 1px solid var(--border); border-radius: 18px; }
+.project-art img { display: block; width: min(100%, 220px); height: auto; object-fit: contain; }
+.project-art figcaption, .project-note { font-size: 0.8rem; }
+.project-art figcaption { text-align: center; }
+.project-note { margin-top: 18px; overflow-wrap: anywhere; }
+@media (min-width: 900px) { .project-card { grid-template-columns: 1fr 1.5fr; } }
 @media (max-height: 720px) and (min-width: 760px) {
   .compact-page .site-header { margin-top: 16px; }
   .compact-page .content-page, .compact-page .about-story { padding-block: 20px; }

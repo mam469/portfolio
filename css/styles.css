@@ -15,7 +15,7 @@
 body { margin: 0; min-height: 100vh; background-color: var(--background); color: var(--text); }
 .home-page { display: flex; flex-direction: column; }
 .home-intro { flex: 1; display: grid; place-items: center; text-align: center; padding-block: 60px; }
-.home-intro h1 { margin: 0; padding: clamp(20px, 4vw, 44px); background: rgba(3, 7, 4, 0.9); border: 1px solid var(--border); }
+.home-intro h1 { margin: 0; padding: clamp(12px, 3vw, 32px); background: transparent; border: 0; text-shadow: 0 3px 12px #000, 0 0 24px rgba(57, 255, 20, 0.3); }
 .home-intro h1 span { display: block; }
 .about-story { max-width: 760px; padding-block: 64px; }
 .content-page { padding-block: 56px; }
@@ -42,7 +42,10 @@ nav a[aria-current] { font-weight: 700; }
 .hero { display: grid; gap: 36px; padding-block: 56px; align-items: center; }
 .home-page .hero { grid-template-columns: minmax(0, 1fr); min-height: 68vh; }
 .home-page .hero-copy { max-width: 720px; padding: clamp(22px, 4vw, 40px); background: var(--background); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: 4px; }
-.home-page .site-header, .home-page .site-footer { background: var(--background); padding-inline: 20px; }
+.home-page .site-footer { background: var(--background); padding-inline: 20px; }
+.home-page .site-header { width: fit-content; max-width: calc(100% - 32px); justify-content: center; margin-top: 24px; padding: 10px clamp(16px, 4vw, 32px); background: rgba(3, 7, 4, 0.94); border: 1px solid var(--border); border-radius: 999px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35); }
+.home-page nav { justify-content: center; column-gap: clamp(12px, 3vw, 28px); row-gap: 2px; }
+.home-page nav a { font-size: clamp(0.75rem, 2.6vw, 0.9rem); padding-block: 10px; }
 .home-page .interests > .eyebrow, .home-page .interests > h2 { width: fit-content; max-width: 100%; padding: 10px 16px; background: var(--background); border-radius: 4px; }
 .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.73rem; font-weight: 700; color: var(--green); margin: 0 0 20px; }
 h1, h2, h3, p { margin-top: 0; }

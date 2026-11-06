@@ -137,6 +137,8 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .centered-text-page main h1, .centered-text-page main p { margin-inline: auto; }
 .centered-text-page .about-story { width: 100%; }
 .education.rounded-panel { border-radius: 24px; }
+#education.rounded-panel { max-width: 760px; margin-inline: auto; }
+.education.contact-panel { max-width: 680px; margin-inline: auto; }
 .rounded-panel > :last-child { margin-bottom: 0; }
 @media (max-height: 720px) and (min-width: 760px) {
   .compact-page .site-header { margin-top: 16px; }

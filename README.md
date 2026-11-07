@@ -10,6 +10,8 @@ GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification p
 
 ## Current progress
 
+Skills is linked from every page and lists beginner-level technical proficiencies practiced with Codex: HTML, CSS, JavaScript, Git/GitHub, GitHub Pages, and AI-assisted development. It includes no unconfirmed workplace duties or nontechnical skills.
+
 Skills is linked from every page. It combines developing HTML/CSS, JavaScript, AI-assisted development, and GitHub experience with workplace and people skills connected to Wawa and this portfolio. Technical descriptions explicitly acknowledge coding assistance.
 
 The third playable project is Breakout, adapted from supplied HTML/JavaScript. Clear 112 bricks using arrow keys or A/D, or touch controls. Space or Launch ball serves; missed balls can be relaunched. Includes a cleared-brick counter, win state, pause/resume, and restart. Simulated gameplay checks passed; browser and live play remain unverified.

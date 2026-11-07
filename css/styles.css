@@ -155,6 +155,12 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .project-art figcaption, .project-note { font-size: 0.8rem; }
 .project-art figcaption { text-align: center; }
 .project-note { margin-top: 18px; overflow-wrap: anywhere; }
+.skills-page main > h1, .skills-page main > .eyebrow { text-align: center; }
+.skills-intro { max-width: 68ch; margin: 0 auto 28px; text-align: center; }
+.skills-grid { display: grid; gap: 20px; }
+.skills-grid > section { min-width: 0; padding: 24px; }
+.skills-grid h2 { font-size: 1.4rem; }
+@media (min-width: 760px) { .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .playable-game { margin-top: 28px; text-align: center; }
 #space-race, #pong { display: block; width: 100%; max-width: 800px; height: auto; margin: 20px auto; border: 1px solid var(--green); border-radius: 16px; }
 #space-race:focus-visible, #pong:focus-visible, button:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }

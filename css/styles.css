@@ -136,8 +136,11 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 /* Home uses destination tiles instead of the shared navigation menu. */
 .home-page > .site-header { align-self: flex-end; margin-inline: 16px; }
 .home-page .home-intro { display: flex; flex-direction: column; justify-content: center; gap: 32px; padding-block: 40px; }
-.home-tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; width: min(100%, 850px); }
-.home-tiles a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 100px; padding: 24px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); color: var(--green); text-align: left; text-decoration: none; font-weight: 700; }
+.home-tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; width: min(100%, 1000px); }
+.home-tiles a { display: flex; align-items: center; justify-content: center; position: relative; gap: 16px; min-width: 0; aspect-ratio: 1; padding: 28px; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); color: var(--green); text-align: center; text-decoration: none; font-size: clamp(1.1rem, 2.3vw, 1.6rem); font-weight: 700; }
+.home-tiles a > span:last-child { position: absolute; top: 20px; right: 24px; }
+.home-page .theme-toggle { border: 0; background: transparent; }
+.home-page .theme-toggle[aria-pressed="true"] { color: var(--green); }
 .home-tiles a:hover { border-color: var(--green); background: var(--surface-raised); box-shadow: 0 0 20px rgba(57, 255, 20, 0.15); }
 @media (min-width: 540px) { .home-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 900px) { .home-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

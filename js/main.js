@@ -33,6 +33,10 @@ if (themeToggle) {
   function applyTheme(theme) {
     document.documentElement.dataset.theme = theme;
     themeToggle.setAttribute('aria-pressed', String(theme === 'light'));
+    themeToggle.textContent = theme === 'light' ? 'Light Mode' : 'Dark Mode';
+    themeToggle.setAttribute('aria-label', theme === 'light'
+      ? 'Current theme: Light Mode. Switch to Dark Mode'
+      : 'Current theme: Dark Mode. Switch to Light Mode');
   }
   let savedTheme = 'dark';
   try { if (localStorage.getItem('portfolio-theme') === 'light') savedTheme = 'light'; } catch { /* Storage is optional for local files. */ }

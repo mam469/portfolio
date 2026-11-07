@@ -1,4 +1,4 @@
-// Space Race and Pong keep separate state and only respond inside their game.
+// Each game keeps separate state and responds only to its own controls.
 const canvas = document.querySelector('#space-race');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -257,4 +257,111 @@ if (pongCanvas) {
     button.addEventListener('keyup', event => { if (event.key === ' ' || event.key === 'Enter') keys.delete(key); });
   }
   draw();
+}
+
+const breakoutCanvas = document.querySelector('#breakout');
+if (breakoutCanvas) {
+  const ctx = breakoutCanvas.getContext('2d');
+  const start = document.querySelector('#breakout-start');
+  const launch = document.querySelector('#breakout-launch');
+  const pause = document.querySelector('#breakout-pause');
+  const status = document.querySelector('#breakout-status');
+  const score = document.querySelector('#breakout-score');
+  const keys = new Set();
+  const paddle = { x: 170, y: 440, width: 60, height: 12 };
+  const ball = { x: 196, y: 430, width: 8, height: 8, dx: 0, dy: 0 };
+  let bricks = [];
+  let running = false;
+  let started = false;
+  let previous = 0;
+  let frame;
+  function makeBricks() {
+    const colors = ['#ff7186', '#ffa54a', '#39ff14', '#f5e56b'];
+    bricks = [];
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 14; col++) {
+        bricks.push({ x: 12 + 27 * col, y: 96 + 14 * row, width: 25, height: 12, color: colors[Math.floor(row / 2)] });
+      }
+    }
+  }
+  function resetBall() { ball.x = paddle.x + 26; ball.y = 430; ball.dx = ball.dy = 0; }
+  function collides(a, b) { return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y; }
+  function draw() {
+    ctx.fillStyle = '#030704'; ctx.fillRect(0, 0, 400, 500);
+    ctx.fillStyle = '#287d25';
+    ctx.fillRect(0, 0, 400, 12); ctx.fillRect(0, 0, 12, 500); ctx.fillRect(388, 0, 12, 500);
+    for (const brick of bricks) { ctx.fillStyle = brick.color; ctx.fillRect(brick.x, brick.y, brick.width, brick.height); }
+    ctx.fillStyle = '#39ff14'; ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+    ctx.fillStyle = '#cfffd7'; ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
+  }
+  function launchBall() {
+    if (!running || ball.dx || ball.dy) return;
+    ball.dx = 150; ball.dy = -180;
+    status.textContent = 'Break the bricks. Keep the ball above the paddle!';
+  }
+  function loop(time) {
+    if (!running) return;
+    const dt = Math.min((time - previous) / 1000, 0.025); previous = time;
+    paddle.x += ((keys.has('right') ? 1 : 0) - (keys.has('left') ? 1 : 0)) * 280 * dt;
+    paddle.x = Math.max(12, Math.min(328, paddle.x));
+    if (!ball.dx && !ball.dy) resetBall();
+    const oldY = ball.y;
+    ball.x += ball.dx * dt; ball.y += ball.dy * dt;
+    if (ball.x < 12) { ball.x = 12; ball.dx = Math.abs(ball.dx); }
+    if (ball.x > 380) { ball.x = 380; ball.dx = -Math.abs(ball.dx); }
+    if (ball.y < 12) { ball.y = 12; ball.dy = Math.abs(ball.dy); }
+    if (ball.dy > 0 && collides(ball, paddle)) {
+      ball.y = paddle.y - ball.height; ball.dy = -Math.abs(ball.dy);
+      ball.dx = ((ball.x + 4 - (paddle.x + 30)) / 30) * 190;
+    }
+    for (let i = 0; i < bricks.length; i++) {
+      const brick = bricks[i];
+      if (!collides(ball, brick)) continue;
+      if (oldY + ball.height <= brick.y || oldY >= brick.y + brick.height) ball.dy *= -1;
+      else ball.dx *= -1;
+      bricks.splice(i, 1);
+      score.textContent = `Bricks cleared: ${112 - bricks.length} / 112`;
+      if (!bricks.length) {
+        running = false; keys.clear(); launch.disabled = pause.disabled = true;
+        status.textContent = 'You cleared every brick! Press Start / restart to play again.';
+      }
+      break;
+    }
+    if (ball.y > 500) { resetBall(); status.textContent = 'Missed! Press Space or Launch ball to try again.'; }
+    draw();
+    if (running) frame = requestAnimationFrame(loop);
+  }
+  start.addEventListener('click', () => {
+    cancelAnimationFrame(frame); keys.clear(); makeBricks(); paddle.x = 170; resetBall();
+    started = running = true; launch.disabled = pause.disabled = false; pause.textContent = 'Pause';
+    score.textContent = 'Bricks cleared: 0 / 112'; status.textContent = 'Press Space or Launch ball to serve.';
+    breakoutCanvas.focus(); previous = performance.now(); frame = requestAnimationFrame(loop);
+  });
+  launch.addEventListener('click', () => { launchBall(); breakoutCanvas.focus(); });
+  function pauseGame() { running = false; cancelAnimationFrame(frame); keys.clear(); pause.textContent = 'Resume'; status.textContent = 'Breakout paused.'; launch.disabled = true; }
+  pause.addEventListener('click', () => {
+    if (!started || !bricks.length) return;
+    if (running) pauseGame();
+    else { running = true; launch.disabled = false; pause.textContent = 'Pause'; status.textContent = 'Breakout resumed.'; breakoutCanvas.focus(); previous = performance.now(); frame = requestAnimationFrame(loop); }
+  });
+  function direction(key) {
+    if (key === 'ArrowLeft' || key.toLowerCase() === 'a') return 'left';
+    if (key === 'ArrowRight' || key.toLowerCase() === 'd') return 'right';
+  }
+  breakoutCanvas.addEventListener('keydown', event => {
+    const move = direction(event.key);
+    if (move || event.key === ' ') { event.preventDefault(); if (running && move) keys.add(move); if (event.key === ' ') launchBall(); }
+  });
+  breakoutCanvas.addEventListener('keyup', event => keys.delete(direction(event.key)));
+  breakoutCanvas.addEventListener('blur', () => keys.clear());
+  window.addEventListener('blur', () => { if (running) pauseGame(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && running) pauseGame(); });
+  for (const button of document.querySelectorAll('[data-breakout]')) {
+    const move = button.dataset.breakout;
+    button.addEventListener('pointerdown', event => { if (running) { button.setPointerCapture(event.pointerId); keys.add(move); } });
+    for (const name of ['pointerup', 'pointercancel', 'lostpointercapture', 'blur']) button.addEventListener(name, () => keys.delete(move));
+    button.addEventListener('keydown', event => { if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); if (running) keys.add(move); } });
+    button.addEventListener('keyup', event => { if (event.key === ' ' || event.key === 'Enter') keys.delete(move); });
+  }
+  makeBricks(); draw();
 }

@@ -156,6 +156,9 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .game-controls [data-move] { touch-action: none; user-select: none; }
 .game-controls [data-pong] { touch-action: none; user-select: none; }
 .pong-movement { margin-top: 12px; }
+#breakout { display: block; width: 100%; max-width: 400px; height: auto; margin: 20px auto; border: 1px solid var(--green); border-radius: 16px; }
+#breakout:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
+.game-controls [data-breakout] { touch-action: none; user-select: none; }
 button:disabled { opacity: 0.5; cursor: default; }
 @media (min-width: 900px) { .project-card { grid-template-columns: 1fr 1.5fr; } }
 @media (max-height: 720px) and (min-width: 760px) {

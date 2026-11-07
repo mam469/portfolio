@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Play Space Race and two-player Pong in Maharab Mohammed's project portfolio.">
+  <meta name="description" content="Play Space Race, two-player Pong, and Breakout in Maharab Mohammed's project portfolio.">
   <title>Projects | Maharab Mohammed</title>
-  <link rel="stylesheet" href="css/styles.css?v=pong-1">
+  <link rel="stylesheet" href="css/styles.css?v=breakout-1">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <script src="js/main.js?v=pong-1" defer></script>
+  <script src="js/main.js?v=breakout-1" defer></script>
 </head>
 <body class="projects-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -54,6 +54,21 @@
       </div>
       <p id="pong-status" role="status">Press Start Pong to begin.</p>
       <noscript><p>Enable JavaScript to play Pong.</p></noscript>
+    </section>
+    <section class="education rounded-panel playable-game" aria-labelledby="breakout-heading">
+      <h2 id="breakout-heading">Play Breakout</h2>
+      <p id="breakout-instructions">Adapted from the supplied HTML game. Clear all 112 bricks with the ball. Use Left/Right arrows or A/D while the game has focus; Space launches the ball. Touch players can hold the movement buttons. If you miss, launch again. Tab leaves the game.</p>
+      <p id="breakout-score">Bricks cleared: 0 / 112</p>
+      <canvas id="breakout" width="400" height="500" tabindex="0" aria-label="Breakout brick-breaking game" aria-describedby="breakout-instructions">Breakout requires Canvas support.</canvas>
+      <div class="game-controls">
+        <button class="button" id="breakout-start" type="button">Start / restart</button>
+        <button class="button" id="breakout-launch" type="button" disabled>Launch ball</button>
+        <button class="button" id="breakout-pause" type="button" disabled>Pause</button>
+        <button class="button" data-breakout="left" type="button">← Left</button>
+        <button class="button" data-breakout="right" type="button">Right →</button>
+      </div>
+      <p id="breakout-status" role="status">Press Start / restart to begin.</p>
+      <noscript><p>Enable JavaScript to play Breakout.</p></noscript>
     </section>
   </main>
 </body>

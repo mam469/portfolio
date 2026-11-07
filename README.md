@@ -10,9 +10,11 @@ GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification p
 
 ## Current progress
 
-The second playable project is two-player Pong, adapted from supplied HTML/JavaScript code. Use W/S for the left paddle and Up/Down for the right, or the touch controls. Includes scoring, restart, and pause/resume. Gameplay logic was tested with simulated inputs; browser and live play remain unverified. One more project is needed for the assignment.
+The third playable project is Breakout, adapted from supplied HTML/JavaScript. Clear 112 bricks using arrow keys or A/D, or touch controls. Space or Launch ball serves; missed balls can be relaunched. Includes a cleared-brick counter, win state, pause/resume, and restart. Simulated gameplay checks passed; browser and live play remain unverified.
 
-Projects is available in every page's navigation. Its first entry is Space Race, with a playable JavaScript/Canvas adaptation of the supplied Python/Pyglet game. Start a round, dodge asteroids with arrow keys or A/D while the canvas has focus, or hold the on-screen movement buttons. A collision ends the round; restart to try again. The best score lasts for the page session. Game logic was checked with simulated inputs; browser rendering and live play remain unverified. The original Python game has not been run. Two more projects are still needed for the assignment.
+The second playable project is two-player Pong, adapted from supplied HTML/JavaScript code. Use W/S for the left paddle and Up/Down for the right, or the touch controls. Includes scoring, restart, and pause/resume. Gameplay logic was tested with simulated inputs; browser and live play remain unverified.
+
+Projects is available in every page's navigation. Its first entry is Space Race, with a playable JavaScript/Canvas adaptation of the supplied Python/Pyglet game. Start a round, dodge asteroids with arrow keys or A/D while the canvas has focus, or hold the on-screen movement buttons. A collision ends the round; restart to try again. The best score lasts for the page session. Game logic was checked with simulated inputs; browser rendering and live play remain unverified. The original Python game has not been run.
 
 The Contact page displays my approved public email address with a clickable email link. Contact is available in the navigation on every page.
 

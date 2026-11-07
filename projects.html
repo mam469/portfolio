@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore projects by Maharab Mohammed, including Space Race, a Python game built with Pyglet.">
+  <meta name="description" content="Play Space Race and two-player Pong in Maharab Mohammed's project portfolio.">
   <title>Projects | Maharab Mohammed</title>
-  <link rel="stylesheet" href="css/styles.css?v=playable-space-race-1">
+  <link rel="stylesheet" href="css/styles.css?v=pong-1">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=pong-1" defer></script>
 </head>
 <body class="projects-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -36,6 +36,24 @@
       </div>
       <p id="game-status" role="status">Press Start game to begin.</p>
       <noscript><p>Enable JavaScript to play Space Race.</p></noscript>
+    </section>
+    <section class="education rounded-panel playable-game" aria-labelledby="pong-heading">
+      <h2 id="pong-heading">Play Pong</h2>
+      <p id="pong-instructions">A two-player paddle game adapted from the supplied HTML code. Left player: W/S. Right player: Up/Down arrows. Focus the game to use the keyboard, or hold the buttons below. Tab leaves the game.</p>
+      <p id="pong-score">Left: 0 · Right: 0</p>
+      <canvas id="pong" width="750" height="585" tabindex="0" aria-label="Two-player Pong game" aria-describedby="pong-instructions">Pong requires Canvas support.</canvas>
+      <div class="game-controls">
+        <button class="button" id="pong-start" type="button">Start Pong</button>
+        <button class="button" id="pong-pause" type="button" disabled>Pause</button>
+      </div>
+      <div class="game-controls pong-movement" role="group" aria-label="Pong paddle controls">
+        <button class="button" data-pong="w" type="button">Left ↑</button>
+        <button class="button" data-pong="s" type="button">Left ↓</button>
+        <button class="button" data-pong="ArrowUp" type="button">Right ↑</button>
+        <button class="button" data-pong="ArrowDown" type="button">Right ↓</button>
+      </div>
+      <p id="pong-status" role="status">Press Start Pong to begin.</p>
+      <noscript><p>Enable JavaScript to play Pong.</p></noscript>
     </section>
   </main>
 </body>

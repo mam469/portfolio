@@ -1,3 +1,4 @@
+// Space Race and Pong keep separate state and only respond inside their game.
 const canvas = document.querySelector('#space-race');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -127,5 +128,133 @@ if (canvas) {
     });
   }
   shipImage.addEventListener('load', () => { if (!running) draw(); });
+  draw();
+}
+
+const pongCanvas = document.querySelector('#pong');
+if (pongCanvas) {
+  const context = pongCanvas.getContext('2d');
+  const start = document.querySelector('#pong-start');
+  const pause = document.querySelector('#pong-pause');
+  const status = document.querySelector('#pong-status');
+  const scoreLabel = document.querySelector('#pong-score');
+  const grid = 15;
+  const paddleHeight = 75;
+  const keys = new Set();
+  const left = { x: 30, y: 255, width: grid, height: paddleHeight };
+  const right = { x: 705, y: 255, width: grid, height: paddleHeight };
+  const ball = { x: 375, y: 292, width: grid, height: grid, dx: 300, dy: -300 };
+  let leftScore = 0;
+  let rightScore = 0;
+  let running = false;
+  let previous = 0;
+  let serveDelay = 0;
+  let frame;
+
+  function collides(a, b) {
+    return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
+  }
+  function serve(direction) {
+    ball.x = 375;
+    ball.y = 292;
+    ball.dx = direction * 300;
+    ball.dy = Math.random() < 0.5 ? -300 : 300;
+    serveDelay = 0.4;
+  }
+  function draw() {
+    context.fillStyle = '#030704';
+    context.fillRect(0, 0, 750, 585);
+    context.fillStyle = '#287d25';
+    context.fillRect(0, 0, 750, grid);
+    context.fillRect(0, 570, 750, grid);
+    for (let y = grid; y < 570; y += 30) context.fillRect(370, y, 10, 15);
+    context.fillStyle = '#39ff14';
+    for (const item of [left, right, ball]) context.fillRect(item.x, item.y, item.width, item.height);
+  }
+  function loop(time) {
+    if (!running) return;
+    const dt = Math.min((time - previous) / 1000, 0.04);
+    previous = time;
+    left.y += ((keys.has('s') ? 1 : 0) - (keys.has('w') ? 1 : 0)) * 360 * dt;
+    right.y += ((keys.has('ArrowDown') ? 1 : 0) - (keys.has('ArrowUp') ? 1 : 0)) * 360 * dt;
+    for (const paddle of [left, right]) paddle.y = Math.max(grid, Math.min(495, paddle.y));
+    if (serveDelay > 0) serveDelay -= dt;
+    else {
+      ball.x += ball.dx * dt;
+      ball.y += ball.dy * dt;
+      if (ball.y < grid) { ball.y = grid; ball.dy = Math.abs(ball.dy); }
+      if (ball.y > 555) { ball.y = 555; ball.dy = -Math.abs(ball.dy); }
+      if (ball.dx < 0 && collides(ball, left)) { ball.dx = Math.abs(ball.dx); ball.x = left.x + left.width; }
+      if (ball.dx > 0 && collides(ball, right)) { ball.dx = -Math.abs(ball.dx); ball.x = right.x - ball.width; }
+      if (ball.x + ball.width < 0 || ball.x > 750) {
+        const rightWon = ball.x < 0;
+        if (rightWon) rightScore++; else leftScore++;
+        scoreLabel.textContent = `Left: ${leftScore} · Right: ${rightScore}`;
+        status.textContent = `${rightWon ? 'Right' : 'Left'} player scores! Next serve coming up.`;
+        serve(rightWon ? -1 : 1);
+      }
+    }
+    draw();
+    frame = requestAnimationFrame(loop);
+  }
+  start.addEventListener('click', () => {
+    cancelAnimationFrame(frame);
+    keys.clear();
+    left.y = right.y = 255;
+    leftScore = rightScore = 0;
+    scoreLabel.textContent = 'Left: 0 · Right: 0';
+    serve(1);
+    running = true;
+    start.textContent = 'Restart Pong';
+    pause.disabled = false;
+    pause.textContent = 'Pause';
+    status.textContent = 'Game started. Left: W/S. Right: Up/Down.';
+    pongCanvas.focus();
+    previous = performance.now();
+    frame = requestAnimationFrame(loop);
+  });
+  function pauseGame() {
+    running = false;
+    cancelAnimationFrame(frame);
+    keys.clear();
+    pause.textContent = 'Resume';
+    status.textContent = 'Pong paused.';
+  }
+  pause.addEventListener('click', () => {
+    if (running) pauseGame();
+    else {
+      running = true;
+      pause.textContent = 'Pause';
+      status.textContent = 'Pong resumed.';
+      previous = performance.now();
+      pongCanvas.focus();
+      frame = requestAnimationFrame(loop);
+    }
+  });
+  function controlKey(key) { return key.length === 1 ? key.toLowerCase() : key; }
+  pongCanvas.addEventListener('keydown', event => {
+    const key = controlKey(event.key);
+    if (['w', 's', 'ArrowUp', 'ArrowDown'].includes(key)) {
+      event.preventDefault();
+      if (running) keys.add(key);
+    }
+  });
+  pongCanvas.addEventListener('keyup', event => keys.delete(controlKey(event.key)));
+  pongCanvas.addEventListener('blur', () => keys.clear());
+  window.addEventListener('blur', () => { if (running) pauseGame(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && running) pauseGame(); });
+  for (const button of document.querySelectorAll('[data-pong]')) {
+    const key = button.dataset.pong;
+    button.addEventListener('pointerdown', event => {
+      if (!running) return;
+      button.setPointerCapture(event.pointerId);
+      keys.add(key);
+    });
+    for (const name of ['pointerup', 'pointercancel', 'lostpointercapture', 'blur']) button.addEventListener(name, () => keys.delete(key));
+    button.addEventListener('keydown', event => {
+      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); if (running) keys.add(key); }
+    });
+    button.addEventListener('keyup', event => { if (event.key === ' ' || event.key === 'Enter') keys.delete(key); });
+  }
   draw();
 }

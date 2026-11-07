@@ -1,88 +1,45 @@
-# Website test plan and results
+# Website test plan
 
 Live site: https://mam469.github.io/portfolio/
 
-## Evidence and limits
+These 30 priority cases cover all page links, phone/laptop layouts, keyboard use, JavaScript features, and Lighthouse Accessibility. No contact form exists, so valid/invalid form-input tests are not applicable.
 
-- Source report: `lighthouse/lighthouse_report` (JSON despite having no `.json` extension). The root `lighthouse_report` is a duplicate of the same run, not a second test.
-- Audited URL: https://mam469.github.io/portfolio/index.html?v=centered-home-1
-- Report timestamp: November 6, 2026, 8:22:25 PM EST (`2026-11-07T01:22:25.514Z`).
-- Accessibility: **100/100**, with **17 passing automated audits**, **0 failed scored audits**, **49 not applicable audits**, and **10 manual checks**.
-- The report includes Accessibility only. It does not establish manual keyboard usability, visual responsiveness, navigation behavior, game correctness, or results for any other page.
-- Configuration says desktop; screen emulation is disabled. This report is not evidence of a tested phone or laptop viewport.
-- Pass below means supported by this report or an explicitly recorded execution. Unexecuted tests remain Not run. No contact form exists, so valid/invalid form-input tests are not applicable.
+Only the Home automated Accessibility result is supported by the supplied JSON (`lighthouse/lighthouse_report`): URL `https://mam469.github.io/portfolio/index.html?v=centered-home-1`, November 6, 2026, 8:22 PM EST (`2026-11-07T01:22:25.514Z`). Manual checks and alternate-theme audit remain unverified. Earlier simulated/HTTP checks do not constitute browser execution of the remaining cases.
 
-## Test cases
+| ID | Testing | Steps | Expected | Result |
+| :--- | :--- | :--- | :--- | :--- |
+| T1 | index.html navigation | Open index.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T2 | about.html navigation | Open about.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T3 | education.html navigation | Open education.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T4 | interests.html navigation | Open interests.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T5 | projects.html navigation | Open projects.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T6 | skills.html navigation | Open skills.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T7 | contact.html navigation | Open contact.html; click each of the seven navigation links. | Each link loads its corresponding page. | Not run |
+| T8 | index.html layouts | Open index.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T9 | about.html layouts | Open about.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T10 | education.html layouts | Open education.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T11 | interests.html layouts | Open interests.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T12 | projects.html layouts | Open projects.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T13 | skills.html layouts | Open skills.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T14 | contact.html layouts | Open contact.html at 390×844 and 1366×768 in both themes. | Readable content; no horizontal scrolling or clipped controls. | Not run |
+| T15 | index.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in index.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T16 | about.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in about.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T17 | education.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in education.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T18 | interests.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in interests.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T19 | projects.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in projects.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T20 | skills.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in skills.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T21 | contact.html keyboard | Use Tab/Shift+Tab, Enter, and Space on every control in contact.html; test skip link. | Visible focus, working controls, logical order, no traps. | Not run |
+| T22 | Mobile menu | Open/close Menu on every page at phone width; press Escape, select a link, resize to laptop. | All links appear; Escape returns focus; closed links not focusable; desktop links visible. | Not run |
+| T23 | Themes | Toggle Light mode on every page; navigate/reload; repeat with storage blocked. | Palettes update; preference persists where supported; no storage error. | Not run |
+| T24 | Space Race | Start; move via keyboard/touch; collide; press Space and Play again. | Movement/scoring work; local loss overlay; clean restart and session best. | Not run |
+| T25 | Pong | Use both players and touch controls; score both sides; pause/resume/restart. | Correct points and local overlays; pause freezes motion; restart clears scores. | Not run |
+| T26 | Breakout | Launch; steer by keyboard/touch; hit bricks; miss/relaunch; clear all bricks; pause/resume/restart. | Brick count, loss/win overlays, relaunch, pause, and restart work. | Not run |
+| T27 | Contact email | Activate Contact email link. | Targets mailto:mohammedmaharab@gmail.com; configured mail client handles link. | Not run |
+| T28 | Home Accessibility | Read supplied Lighthouse JSON for live index.html. | Accessibility ≥90. | Pass — 100/100; 17 automated audits passed, 0 failed. |
+| T29 | Other pages Accessibility | Run Lighthouse on About Me, Education, Interests, Projects, Skills, Contact in both themes; record scores. | Each page scores ≥90; measured scores recorded. | Not run — six page scores pending |
+| T30 | Console and local opening | Inspect console on every live page while using all features; double-click index.html and test links/games locally. | No errors/missing assets; works without server. | Not run |
 
-Run these against the live site. For navigation, use all seven links: Home, About Me, Education, Interests, Projects, Skills, Contact. For layout and keyboard checks, test both dark and light themes. Record failures and retests in the log below.
+## Failures and retests
 
-| ID | What is being tested | Steps | Expected result | Actual result |
-| --- | --- | --- | --- | --- |
-| T1 | index.html: Every navigation link | Open index.html; click each of the seven navigation links, returning to index.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T2 | index.html: Phone layout | Open index.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T3 | index.html: Laptop layout | Open index.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T4 | index.html: Keyboard navigation | Open index.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T5 | index.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for index.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Pass — 100/100 in supplied report; 17 automated audits passed, 0 failed. Theme not recorded; alternate-theme run and manual checks Not run. |
-| T6 | about.html: Every navigation link | Open about.html; click each of the seven navigation links, returning to about.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T7 | about.html: Phone layout | Open about.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T8 | about.html: Laptop layout | Open about.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T9 | about.html: Keyboard navigation | Open about.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T10 | about.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for about.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Not run — no supporting browser execution/report. |
-| T11 | education.html: Every navigation link | Open education.html; click each of the seven navigation links, returning to education.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T12 | education.html: Phone layout | Open education.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T13 | education.html: Laptop layout | Open education.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T14 | education.html: Keyboard navigation | Open education.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T15 | education.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for education.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Not run — no supporting browser execution/report. |
-| T16 | interests.html: Every navigation link | Open interests.html; click each of the seven navigation links, returning to interests.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T17 | interests.html: Phone layout | Open interests.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T18 | interests.html: Laptop layout | Open interests.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T19 | interests.html: Keyboard navigation | Open interests.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T20 | interests.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for interests.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Not run — no supporting browser execution/report. |
-| T21 | projects.html: Every navigation link | Open projects.html; click each of the seven navigation links, returning to projects.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T22 | projects.html: Phone layout | Open projects.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T23 | projects.html: Laptop layout | Open projects.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T24 | projects.html: Keyboard navigation | Open projects.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T25 | projects.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for projects.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Not run — no supporting browser execution/report. |
-| T26 | skills.html: Every navigation link | Open skills.html; click each of the seven navigation links, returning to skills.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T27 | skills.html: Phone layout | Open skills.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T28 | skills.html: Laptop layout | Open skills.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T29 | skills.html: Keyboard navigation | Open skills.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T30 | skills.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for skills.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Not run — no supporting browser execution/report. |
-| T31 | contact.html: Every navigation link | Open contact.html; click each of the seven navigation links, returning to contact.html after each. Repeat using the expanded phone menu. | Each destination loads, has correct content, and marks only its own navigation link current. | Not run — no supporting browser execution/report. |
-| T32 | contact.html: Phone layout | Open contact.html at 390×844 and 320×568; check both themes, expanded/collapsed menu, and scroll through content. | No horizontal scrolling, overlapping text, or clipped controls; vertical scrolling available as needed. | Not run — no supporting browser execution/report. |
-| T33 | contact.html: Laptop layout | Open contact.html at 1366×768; inspect both themes and all page content. | Readable, consistently aligned content; controls remain visible and usable. | Not run — no supporting browser execution/report. |
-| T34 | contact.html: Keyboard navigation | Open contact.html; use Tab/Shift+Tab through all controls; activate links with Enter, buttons with Enter/Space; try skip link and Escape. | Visible focus, logical order, usable skip link, no traps; Escape closes mobile menu and returns focus. | Not run — no supporting browser execution/report. |
-| T35 | contact.html: Lighthouse Accessibility | Run Chrome DevTools Lighthouse Accessibility for contact.html; record score, URL, date, and theme. Audit the alternate theme separately. | Accessibility score ≥90; inspect flagged elements and complete manual checks separately. | Not run — no supporting browser execution/report. |
-| T36 | Mobile menu on every page | At ≤760px, activate Menu repeatedly; inspect aria-expanded; Tab through closed/open menu; select a link; press Escape; resize above 760px. | Opens/closes consistently; hidden links not focusable; Escape returns focus; desktop navigation visible. | Not run — requires browser execution. |
-| T37 | Theme toggle on every page | Toggle Light mode with mouse and keyboard; navigate among all pages; reload; return to dark. | Palette and aria-pressed update; preference persists when storage is allowed; content remains readable. | Not run — requires browser execution. |
-| T38 | Storage unavailable | Block storage and reload; use theme toggle on every page. | Toggle works without uncaught exceptions; persistence is optional. | Not run — requires browser execution. |
-| T39 | JavaScript disabled | Disable JavaScript and reload every page. | All navigation links visible; content readable; games show explanatory noscript text. | Not run — requires browser execution. |
-| T40 | Space Race movement and scoring | Start; use arrows/A/D; use touch controls; survive several seconds. | Ship moves within bounds, asteroids spawn, score increases, best score updates. | Not run — requires browser execution. |
-| T41 | Space Race loss and restart | Collide with asteroid; inspect overlay; press Space while canvas focused; repeat with Play again. | Round stops; centered local game-over message; restart clears score/asteroids/overlay and preserves session best. | Not run — requires browser execution. |
-| T42 | Pong controls and points | Start; move both paddles with W/S and Up/Down and touch; let ball pass each side. | Paddles stay in bounds; correct player gains point; local message clears before next serve. | Not run — requires browser execution. |
-| T43 | Pong pause/resume/restart | Pause during rally, wait, resume; restart; switch browser tabs. | Pause freezes motion, resume continues, restart clears scores; leaving window pauses without stuck keys. | Not run — requires browser execution. |
-| T44 | Breakout movement, launch, bricks | Start; launch with Space and button; use keyboard/touch; hit bricks. | Paddle stays in bounds; wall/paddle bounces work; each brick hit updates count. | Not run — requires browser execution. |
-| T45 | Breakout missed ball and relaunch | Miss the ball, inspect message, then press Space or Launch ball. | Local lost-ball overlay appears; relaunch clears it and preserves cleared bricks. | Not run — requires browser execution. |
-| T46 | Breakout win and restart | Clear all 112 bricks; inspect win state; restart. | Win overlay appears only in Breakout; ball stops; restart restores all bricks and counter. | Not run — requires browser execution. |
-| T47 | Breakout pause/resume | Pause with moving ball; wait; resume; switch browser tabs. | Paused state freezes movement; resume restores play; losing window focus pauses safely. | Not run — requires browser execution. |
-| T48 | Game isolation and key release | Start games; switch focus between canvases; hold/release touch controls; cancel pointer; Tab away. | Only focused game receives keyboard input; no stuck movement; overlays never cover other games. | Not run — requires browser execution. |
-| T49 | Contact email | Open Contact; activate displayed email link. | Targets mailto:mohammedmaharab@gmail.com; configured email client may open; no server/form required. | Not run — requires browser execution. |
-| T50 | Home footer | Activate Back to top on Home; inspect all other pages. | Home link reaches main; footer bar absent on other pages. | Not run — requires browser execution. |
-| T51 | Console errors | On every live page inspect browser console while exercising every feature. | No uncaught JavaScript errors or failed local asset requests. | Not run — requires browser execution. |
-| T52 | Local file opening | Double-click index.html; navigate every page; exercise menus, themes, games, and email link. | Relative resources and browser-local interactions work without server/build tools. | Not run — requires browser execution. |
-| T53 | Zoom and reduced motion | At 200% zoom inspect all pages, then enable reduced motion and use navigation. | Content and controls remain accessible without clipping; no unnecessary motion. | Not run — requires browser execution. |
-
-## Execution and retest log
-
-| Date | Test | Evidence / observation | Result | Fix / retest |
-| --- | --- | --- | --- | --- |
-| November 6, 2026, 8:22 PM EST | T5 — Home Accessibility | Supplied Lighthouse JSON: 100/100, 17 automated passes, 0 failed scored audits. | Pass for automated run | No failed audits to fix. Complete the 10 manual checks and alternate-theme run separately. |
-
-Keep every failed attempt in this log. For a failure, record test ID, actual behavior, fix/commit, and dated retest result. Never replace a failure with an unsupported pass. Add separate reports for the other six pages and record their measured scores in T10, T15, T20, T25, T30, and T35.
-
-## Historical checks
-
-Earlier work recorded passing local structure/asset checks, representative palette contrast checks, and simulated JavaScript logic tests. A November 6 HTTP audit fetched all seven live pages and assets successfully and verified menu/theme code after an initial deployment delay. These are supporting checks, not executions of the manual cases above. They have not been rerun for this documentation-only task.
-
-No report or screenshots were created or modified as part of this test-plan update.
+Record test ID, date, observed failure, fix/commit, and retest outcome here. Preserve failed attempts. No failed automated audits appear in the supplied Home report. Mark unexecuted cases Not run; change to Pass or Fail only after execution.
 

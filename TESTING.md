@@ -62,8 +62,30 @@ Simulated checks passed: menu open/close, Escape/focus return, link close, deskt
 
 ## Live HTTP audit
 
-Pending post-deployment verification. Checks below will record fetched page navigation and assets; they do not verify rendered layout or interactive behavior.
+| Page | HTTP | Navigation | New controls deployed |
+| --- | --- | --- | --- |
+| index.html | 200 | Pass — all seven links | Not yet — deployment pending |
+| about.html | 200 | Pass — all seven links | Not yet — deployment pending |
+| education.html | 200 | Pass — all seven links | Not yet — deployment pending |
+| interests.html | 200 | Pass — all seven links | Not yet — deployment pending |
+| projects.html | 200 | Pass — all seven links | Not yet — deployment pending |
+| skills.html | 200 | Pass — all seven links | Not yet — deployment pending |
+| contact.html | 200 | Pass — all seven links | Not yet — deployment pending |
+Asset HTTP pass: `css/styles.css` (200).
+Asset HTTP pass: `images/favicon.svg` (200).
+Asset HTTP pass: `images/tech.jpg` (200).
+Asset HTTP pass: `images/soccer.jpg` (200).
+Asset HTTP pass: `images/minecraft.jpg` (200).
+Asset HTTP pass: `js/main.js` (200).
+Current light-theme CSS detected: False. Current menu/theme JS detected: False.
+Verified by HTTP on November 6, 2026. Navigation links were parsed and destinations fetched; actual clicking, rendering, and Lighthouse were not tested.
 
 ## Failures and retests
 
 Keep failed results here rather than overwriting them. Record test ID, date, observed failure, fix/commit, and retest outcome. Browser checks have not been executed, so no pass is claimed for them.
+
+### Deployment retest
+
+All seven live pages now return the new menu/theme markup and versioned assets. Initial audit saw the previous deployment; retest passed after Pages updated. Browser interaction and Lighthouse remain Not run.
+
+Retest also confirmed the live light-theme CSS and menu/theme JavaScript are the current versions (HTTP 200).

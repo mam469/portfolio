@@ -133,6 +133,15 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .site-header nav a { font-size: clamp(0.75rem, 2.6vw, 0.9rem); padding-block: 10px; }
 .site-footer a { padding-block: 10px; }
 
+/* Home uses destination tiles instead of the shared navigation menu. */
+.home-page > .site-header { align-self: flex-end; margin-inline: 16px; }
+.home-page .home-intro { display: flex; flex-direction: column; justify-content: center; gap: 32px; padding-block: 40px; }
+.home-tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; width: min(100%, 850px); }
+.home-tiles a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 100px; padding: 24px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); color: var(--green); text-align: left; text-decoration: none; font-weight: 700; }
+.home-tiles a:hover { border-color: var(--green); background: var(--surface-raised); box-shadow: 0 0 20px rgba(57, 255, 20, 0.15); }
+@media (min-width: 540px) { .home-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .home-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
 /* Reduce unused space without clipping content on small screens or zoom. */
 .compact-page .about-story { max-width: 850px; padding-block: 28px; }
 .compact-page .content-page { padding-block: 28px; }

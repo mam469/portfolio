@@ -10,7 +10,7 @@ Work on one small, requested task at a time. Do not build the entire website in 
 
 Create five separate pages, with all five linked from the navigation on every page:
 
-- `index.html`: Home, with only the centered greeting “Hello, I’m Maharab Mohammed” in the main content and navigation to the other pages.
+- `index.html`: Home, with clickable tiles linking to the six other pages beneath the centered greeting “Hello, I’m Maharab Mohammed” in the main content and navigation to the other pages.
 - `education.html`: Education and career goals, including my school, major, labs, and club aspirations.
 - `interests.html`: Technology, soccer, and Minecraft interests.
 - `about.html`: About Me, with my background, education, and interests.
@@ -29,7 +29,7 @@ Use a hacker-inspired terminal style with near-black backgrounds, electric green
 - Accent and links: electric green (`#39FF14`), with clearly visible hover and keyboard focus states. Use near-black text on filled green buttons.
 - Surfaces: black-green (`#071009`, `#0A170B`, `#09130A`), with green borders (`#287D25`), small corner radii, and subtle green panel shadows.
 - Keep content panels opaque so text remains readable over the Home page background. The background image is decorative; keep essential information in HTML.
-- Home is an exception to panel styling: show the centered greeting without a box, using a subtle text shadow over the darkened background. Every page has centered navigation in a pill-shaped header with no name badge. Only Home has a matching pill-shaped footer with a centered back-to-top link. About Me, Education, and Interests use compact spacing to fit typical laptop screens; allow natural scrolling on smaller screens or when zoomed rather than clipping content.
+- Home is an exception to panel styling: show the centered greeting without a box, using a subtle text shadow over the darkened background. Inner pages have centered navigation in a pill-shaped header with no name badge. Home instead uses responsive destination tiles and places its Light mode button in a top-right pill. Only Home has a matching pill-shaped footer with a centered back-to-top link. About Me, Education, and Interests use compact spacing to fit typical laptop screens; allow natural scrolling on smaller screens or when zoomed rather than clipping content.
 - Use bright green selectively for headings, links, buttons, and small accents. Avoid glowing body text and excessive effects.
 - Dark is the default theme. A Light mode toggle offers an accessible light green palette and saves the choice when browser storage is available. On screens at or below 760px, a Menu button expands the navigation; without JavaScript all navigation links remain visible.
 - Fonts: a local monospace stack, `"Cascadia Code", Consolas, "Courier New", monospace`; no external font dependency.

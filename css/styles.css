@@ -142,6 +142,13 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 .education.contact-panel { max-width: 680px; margin-inline: auto; }
 .rounded-panel > :last-child { margin-bottom: 0; }
 .projects-page main > h1, .projects-page main > .eyebrow { text-align: center; }
+.skills-page main > h1, .skills-page main > .eyebrow, .skills-intro { text-align: center; }
+.skills-intro { max-width: 70ch; margin: 0 auto 28px; }
+.skills-grid { display: grid; gap: 24px; }
+.skills-grid h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.skills-list dt { font-size: 1rem; font-weight: 700; }
+.skills-list dd { font-weight: 400; font-size: 0.95rem; }
+@media (min-width: 900px) { .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .project-card { display: grid; gap: 28px; margin-top: 32px; }
 .project-art { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; margin: 0; padding: 28px; background: #030704; border: 1px solid var(--border); border-radius: 18px; }
 .project-art img { display: block; width: min(100%, 220px); height: auto; object-fit: contain; }

@@ -159,6 +159,11 @@ nav a:hover, nav a[aria-current] { border-bottom-color: var(--green); }
 #breakout { display: block; width: 100%; max-width: 400px; height: auto; margin: 20px auto; border: 1px solid var(--green); border-radius: 16px; }
 #breakout:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
 .game-controls [data-breakout] { touch-action: none; user-select: none; }
+.game-stage { position: relative; width: 100%; max-width: 800px; margin: 20px auto; }
+.breakout-stage { max-width: 400px; }
+.game-stage canvas { margin: 0 !important; }
+.game-result { position: absolute; inset: 0; display: grid; place-content: center; padding: clamp(16px, 4vw, 32px); border-radius: 16px; background: rgba(3, 7, 4, 0.88); color: var(--green); font-size: clamp(1.1rem, 3vw, 2rem); font-weight: 700; line-height: 1.4; text-align: center; pointer-events: none; overflow-wrap: anywhere; }
+.game-result[hidden] { display: none; }
 button:disabled { opacity: 0.5; cursor: default; }
 @media (min-width: 900px) { .project-card { grid-template-columns: 1fr 1.5fr; } }
 @media (max-height: 720px) and (min-width: 760px) {

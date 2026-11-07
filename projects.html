@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Play Space Race, two-player Pong, and Breakout in Maharab Mohammed's project portfolio.">
   <title>Projects | Maharab Mohammed</title>
-  <link rel="stylesheet" href="css/styles.css?v=breakout-1">
+  <link rel="stylesheet" href="css/styles.css?v=game-results-1">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <script src="js/main.js?v=breakout-1" defer></script>
+  <script src="js/main.js?v=game-results-1" defer></script>
 </head>
 <body class="projects-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,7 +28,10 @@
       <h2 id="game-heading">Play Space Race</h2>
       <p id="game-instructions">Dodge falling asteroids with Left/Right arrows or A/D while the game has focus. On touch screens, hold the movement buttons. A collision ends the round. Tab moves you out of the game.</p>
       <p id="game-score">Score: 0 · Session best: 0</p>
-      <canvas id="space-race" width="640" height="400" tabindex="0" aria-label="Space Race game area" aria-describedby="game-instructions">Space Race requires a browser with Canvas support.</canvas>
+      <div class="game-stage space-race-stage">
+        <canvas id="space-race" width="640" height="400" tabindex="0" aria-label="Space Race game area" aria-describedby="game-instructions">Space Race requires a browser with Canvas support.</canvas>
+        <div class="game-result" id="space-race-result" hidden aria-hidden="true"></div>
+      </div>
       <div class="game-controls">
         <button class="button" id="start-game" type="button">Start game</button>
         <button class="button" data-move="left" type="button" aria-label="Move spaceship left">← Left</button>
@@ -41,7 +44,10 @@
       <h2 id="pong-heading">Play Pong</h2>
       <p id="pong-instructions">A two-player paddle game adapted from the supplied HTML code. Left player: W/S. Right player: Up/Down arrows. Focus the game to use the keyboard, or hold the buttons below. Tab leaves the game.</p>
       <p id="pong-score">Left: 0 · Right: 0</p>
-      <canvas id="pong" width="750" height="585" tabindex="0" aria-label="Two-player Pong game" aria-describedby="pong-instructions">Pong requires Canvas support.</canvas>
+      <div class="game-stage pong-stage">
+        <canvas id="pong" width="750" height="585" tabindex="0" aria-label="Two-player Pong game" aria-describedby="pong-instructions">Pong requires Canvas support.</canvas>
+        <div class="game-result" id="pong-result" hidden aria-hidden="true"></div>
+      </div>
       <div class="game-controls">
         <button class="button" id="pong-start" type="button">Start Pong</button>
         <button class="button" id="pong-pause" type="button" disabled>Pause</button>
@@ -59,7 +65,10 @@
       <h2 id="breakout-heading">Play Breakout</h2>
       <p id="breakout-instructions">Adapted from the supplied HTML game. Clear all 112 bricks with the ball. Use Left/Right arrows or A/D while the game has focus; Space launches the ball. Touch players can hold the movement buttons. If you miss, launch again. Tab leaves the game.</p>
       <p id="breakout-score">Bricks cleared: 0 / 112</p>
-      <canvas id="breakout" width="400" height="500" tabindex="0" aria-label="Breakout brick-breaking game" aria-describedby="breakout-instructions">Breakout requires Canvas support.</canvas>
+      <div class="game-stage breakout-stage">
+        <canvas id="breakout" width="400" height="500" tabindex="0" aria-label="Breakout brick-breaking game" aria-describedby="breakout-instructions">Breakout requires Canvas support.</canvas>
+        <div class="game-result" id="breakout-result" hidden aria-hidden="true"></div>
+      </div>
       <div class="game-controls">
         <button class="button" id="breakout-start" type="button">Start / restart</button>
         <button class="button" id="breakout-launch" type="button" disabled>Launch ball</button>

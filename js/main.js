@@ -1,4 +1,10 @@
 // Each game keeps separate state and responds only to its own controls.
+function showGameResult(gameId, message) {
+  const result = document.querySelector(`#${gameId}-result`);
+  if (!result) return;
+  result.textContent = message;
+  result.hidden = !message;
+}
 const canvas = document.querySelector('#space-race');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -50,6 +56,7 @@ if (canvas) {
     keys.clear();
     startButton.textContent = 'Play again';
     status.textContent = `Collision! Final score: ${Math.floor(score)}. Press Play again to restart.`;
+    showGameResult('space-race', `Game over! Score: ${Math.floor(score)}. Press Play again below.`);
   }
 
   function tick(time) {
@@ -80,6 +87,7 @@ if (canvas) {
   }
 
   startButton.addEventListener('click', () => {
+    showGameResult('space-race', '');
     cancelAnimationFrame(frameId);
     keys.clear();
     shipX = 320;
@@ -178,7 +186,10 @@ if (pongCanvas) {
     left.y += ((keys.has('s') ? 1 : 0) - (keys.has('w') ? 1 : 0)) * 360 * dt;
     right.y += ((keys.has('ArrowDown') ? 1 : 0) - (keys.has('ArrowUp') ? 1 : 0)) * 360 * dt;
     for (const paddle of [left, right]) paddle.y = Math.max(grid, Math.min(495, paddle.y));
-    if (serveDelay > 0) serveDelay -= dt;
+    if (serveDelay > 0) {
+      serveDelay -= dt;
+      if (serveDelay <= 0) showGameResult('pong', '');
+    }
     else {
       ball.x += ball.dx * dt;
       ball.y += ball.dy * dt;
@@ -192,12 +203,15 @@ if (pongCanvas) {
         scoreLabel.textContent = `Left: ${leftScore} · Right: ${rightScore}`;
         status.textContent = `${rightWon ? 'Right' : 'Left'} player scores! Next serve coming up.`;
         serve(rightWon ? -1 : 1);
+        serveDelay = 1.5;
+        showGameResult('pong', `${rightWon ? 'Right' : 'Left'} player wins the point!`);
       }
     }
     draw();
     frame = requestAnimationFrame(loop);
   }
   start.addEventListener('click', () => {
+    showGameResult('pong', '');
     cancelAnimationFrame(frame);
     keys.clear();
     left.y = right.y = 255;
@@ -296,6 +310,7 @@ if (breakoutCanvas) {
   }
   function launchBall() {
     if (!running || ball.dx || ball.dy) return;
+    showGameResult('breakout', '');
     ball.dx = 150; ball.dy = -180;
     status.textContent = 'Break the bricks. Keep the ball above the paddle!';
   }
@@ -324,15 +339,21 @@ if (breakoutCanvas) {
       if (!bricks.length) {
         running = false; keys.clear(); launch.disabled = pause.disabled = true;
         status.textContent = 'You cleared every brick! Press Start / restart to play again.';
+        showGameResult('breakout', 'You win! All bricks cleared. Restart below to play again.');
       }
       break;
     }
-    if (ball.y > 500) { resetBall(); status.textContent = 'Missed! Press Space or Launch ball to try again.'; }
+    if (ball.y > 500) {
+      resetBall();
+      status.textContent = 'Missed! Press Space or Launch ball to try again.';
+      showGameResult('breakout', 'Ball lost! Press Space or Launch ball to try again.');
+    }
     draw();
     if (running) frame = requestAnimationFrame(loop);
   }
   start.addEventListener('click', () => {
     cancelAnimationFrame(frame); keys.clear(); makeBricks(); paddle.x = 170; resetBall();
+    showGameResult('breakout', '');
     started = running = true; launch.disabled = pause.disabled = false; pause.textContent = 'Pause';
     score.textContent = 'Bricks cleared: 0 / 112'; status.textContent = 'Press Space or Launch ball to serve.';
     breakoutCanvas.focus(); previous = performance.now(); frame = requestAnimationFrame(loop);

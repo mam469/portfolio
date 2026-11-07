@@ -55,8 +55,8 @@ if (canvas) {
     running = false;
     keys.clear();
     startButton.textContent = 'Play again';
-    status.textContent = `Collision! Final score: ${Math.floor(score)}. Press Play again to restart.`;
-    showGameResult('space-race', `Game over! Score: ${Math.floor(score)}. Press Play again below.`);
+    status.textContent = `Collision! Final score: ${Math.floor(score)}. Press Space or Play again to restart.`;
+    showGameResult('space-race', `Game over! Score: ${Math.floor(score)}. Press Space or Play again to restart.`);
   }
 
   function tick(time) {
@@ -108,6 +108,11 @@ if (canvas) {
     if (key === 'ArrowRight' || key.toLowerCase() === 'd') return 'right';
   }
   canvas.addEventListener('keydown', event => {
+    if (event.key === ' ') {
+      event.preventDefault();
+      if (!running && !event.repeat) startButton.click();
+      return;
+    }
     const move = direction(event.key);
     if (move) { event.preventDefault(); if (running) keys.add(move); }
   });

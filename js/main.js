@@ -1,3 +1,50 @@
+// Shared controls progressively enhance the navigation; links work without JS.
+const navigation = document.querySelector('#site-navigation');
+const menuToggle = document.querySelector('.nav-toggle');
+if (navigation && menuToggle) {
+  const smallScreen = window.matchMedia('(max-width: 760px)');
+  function closeMenu() {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    navigation.hidden = smallScreen.matches;
+  }
+  function updateMenuLayout() {
+    menuToggle.hidden = !smallScreen.matches;
+    closeMenu();
+  }
+  menuToggle.addEventListener('click', () => {
+    const open = menuToggle.getAttribute('aria-expanded') !== 'true';
+    menuToggle.setAttribute('aria-expanded', String(open));
+    navigation.hidden = !open;
+  });
+  navigation.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && smallScreen.matches && !navigation.hidden) {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+  smallScreen.addEventListener('change', updateMenuLayout);
+  updateMenuLayout();
+}
+const themeToggle = document.querySelector('.theme-toggle');
+if (themeToggle) {
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    themeToggle.setAttribute('aria-pressed', String(theme === 'light'));
+  }
+  let savedTheme = 'dark';
+  try { if (localStorage.getItem('portfolio-theme') === 'light') savedTheme = 'light'; } catch { /* Storage is optional for local files. */ }
+  applyTheme(savedTheme);
+  themeToggle.hidden = false;
+  themeToggle.addEventListener('click', () => {
+    const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    applyTheme(theme);
+    try { localStorage.setItem('portfolio-theme', theme); } catch { /* The toggle still works without storage. */ }
+  });
+}
+
 // Each game keeps separate state and responds only to its own controls.
 function showGameResult(gameId, message) {
   const result = document.querySelector(`#${gameId}-result`);

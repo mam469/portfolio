@@ -31,6 +31,7 @@ Use a hacker-inspired terminal style with near-black backgrounds, electric green
 - Keep content panels opaque so text remains readable over the Home page background. The background image is decorative; keep essential information in HTML.
 - Home is an exception to panel styling: show the centered greeting without a box, using a subtle text shadow over the darkened background. Every page has centered navigation in a pill-shaped header with no name badge. Only Home has a matching pill-shaped footer with a centered back-to-top link. About Me, Education, and Interests use compact spacing to fit typical laptop screens; allow natural scrolling on smaller screens or when zoomed rather than clipping content.
 - Use bright green selectively for headings, links, buttons, and small accents. Avoid glowing body text and excessive effects.
+- Dark is the default theme. A Light mode toggle offers an accessible light green palette and saves the choice when browser storage is available. On screens at or below 760px, a Menu button expands the navigation; without JavaScript all navigation links remain visible.
 - Fonts: a local monospace stack, `"Cascadia Code", Consolas, "Courier New", monospace`; no external font dependency.
 - Layout: a centered content area, readable line lengths, and project cards that stack on small screens.
 - About Me, Education, Interests, and Contact center their content and text horizontally, and center the main content vertically below navigation when viewport space allows. Preserve natural scrolling when content exceeds the viewport.

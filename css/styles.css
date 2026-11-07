@@ -12,6 +12,28 @@
   line-height: 1.6;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f1f8ef;
+  --text: #183620;
+  --green: #17652b;
+  --surface: #ffffff;
+  --surface-raised: #e1eedc;
+  --border: #648468;
+}
+:root[data-theme="light"] .home-page { background-image: linear-gradient(rgba(241, 248, 239, 0.88), rgba(241, 248, 239, 0.88)), url("../images/voxel-workshop.jpg"); }
+:root[data-theme="light"] .site-header, :root[data-theme="light"] .site-footer { background: var(--surface); }
+:root[data-theme="light"] .home-intro h1 { text-shadow: 0 2px 12px #fff; }
+:root[data-theme="light"] .interest-list li:nth-child(3) { background: #e5f3e8; }
+:root[data-theme="light"] .game-result { color: #39ff14; }
+.nav-toggle, .theme-toggle { font: inherit; font-size: 0.8rem; color: var(--green); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 10px 14px; min-height: 44px; cursor: pointer; }
+.theme-toggle[aria-pressed="true"] { background: var(--green); color: var(--background); }
+@media (max-width: 760px) {
+  .site-header { border-radius: 28px; }
+  .site-header:has(.nav-toggle:not([hidden])) nav { flex-basis: 100%; order: 3; flex-direction: column; align-items: stretch; }
+  .site-header nav a { padding: 10px 16px; }
+}
 body { margin: 0; min-height: 100vh; background-color: var(--background); color: var(--text); }
 .home-page { display: flex; flex-direction: column; }
 .home-intro { flex: 1; display: grid; place-items: center; text-align: center; padding-block: 60px; }

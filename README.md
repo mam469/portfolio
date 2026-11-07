@@ -1,27 +1,38 @@
 # Maharab Mohammed's Portfolio
 
-A personal portfolio for my Electrical and Computer Engineering Technology studies at New Jersey Institute of Technology. My goals are to build strong technical skills through class labs, join a hands-on engineering club, and eventually work for a tech company helping design and test power or smart devices.
+Personal portfolio for my Electrical and Computer Engineering Technology studies at New Jersey Institute of Technology, interests, projects, and developing skills.
 
-## View the website
+- Live website: https://mam469.github.io/portfolio/
+- Repository: https://github.com/mam469/portfolio
 
-Open `index.html` directly in a browser, or use VS Code Live Preview. No installation or build step is required.
+## View locally
 
-GitHub Pages URL: https://mam469.github.io/portfolio/ (deployment verification pending).
+Double-click `index.html` to open it in a browser, or open the folder in VS Code and use Live Preview. No installation, backend, or build step is required. Keep the HTML files, `css`, `js`, and `images` together so relative paths work.
 
-## Current progress
+## Pages and features
 
-Skills is linked from every page and lists beginner-level technical proficiencies practiced with Codex: HTML, CSS, JavaScript, Git/GitHub, GitHub Pages, and AI-assisted development. It includes no unconfirmed workplace duties or nontechnical skills.
+Home has a centered introduction over an AI-generated voxel workshop background. About Me, Education, Interests, Projects, Skills, and Contact are linked from every page. Contact opens an email application through an email link; there is no form or server.
 
-The third playable project is Breakout, adapted from supplied HTML/JavaScript. Clear 112 bricks using arrow keys or A/D, or touch controls. Space or Launch ball serves; missed balls can be relaunched. Includes a cleared-brick counter, win state, pause/resume, and restart. Simulated gameplay checks passed; browser and live play remain unverified.
+The default style uses near-black backgrounds, vibrant green accents, monospace text, rounded panels, and pill navigation. Light mode switches to a light green palette. The preference is saved when browser storage is available; the control still works if storage is blocked. The Menu button expands navigation on screens up to 760px wide. Escape closes it and returns focus to the button. Navigation remains visible without JavaScript.
 
-The second playable project is two-player Pong, adapted from supplied HTML/JavaScript code. Use W/S for the left paddle and Up/Down for the right, or the touch controls. Includes scoring, restart, and pause/resume. Gameplay logic was tested with simulated inputs; browser and live play remain unverified.
+Projects contains three playable games:
 
-Projects is available in every page's navigation. Its first entry is Space Race, with a playable JavaScript/Canvas adaptation of the supplied Python/Pyglet game. Start a round, dodge asteroids with arrow keys or A/D while the canvas has focus, or hold the on-screen movement buttons. A collision ends the round; restart to try again. The best score lasts for the page session. Game logic was checked with simulated inputs; browser rendering and live play remain unverified. The original Python game has not been run.
+| Game | Controls | Features |
+| --- | --- | --- |
+| Space Race | Left/Right or A/D; touch movement buttons | Dodge asteroids, session best score, local game-over overlay; Space restarts after a loss while focused. |
+| Pong | Left player W/S; right player Up/Down; touch buttons | Two-player scoring, point overlays, pause/resume, restart. |
+| Breakout | Left/Right or A/D; Space or Launch ball; touch buttons | 112 bricks, cleared-brick counter, relaunch after misses, win overlay, pause/resume, restart. |
 
-The Contact page displays my approved public email address with a clickable email link. Contact is available in the navigation on every page.
+Start each game before playing. Keyboard controls apply when its canvas has focus; Tab leaves the game. Game messages stay within their own canvas region. Canvas gameplay is visual and is not fully accessible to nonvisual players. Scores last only for the current page session.
 
-The shared visual theme is hacker-inspired: near-black backgrounds, electric green headings and borders, monospace type, and terminal-style panels. Stylesheet URLs include a version to refresh cached styling after this redesign.
+## Testing
 
-Home now shows only a centered greeting over the voxel background. About Me contains my background story, Education contains my studies and career goals, and Interests contains technology, soccer, and Minecraft. Every page links to these four pages. Projects, Skills, Contact, and JavaScript interactions are future tasks.
+See `TESTING.md` for the test plan, actual results, and outstanding checks. Local structure, asset paths, image sizes, palette contrast, and simulated JavaScript behavior were checked. Browser tools were unavailable during the latest verification, so visual phone/laptop checks, real keyboard walkthroughs, console inspection, local-file gameplay, and Lighthouse remain Not run. No screenshots or report are included in this task.
 
-Built with plain HTML and CSS, with assistance from Codex. The Home page's voxel workshop hero image was generated with OpenAI image generation to reflect my technology and Minecraft interests; it is an illustration, not a photograph of my work. The cream MM favicon on forest green is an SVG.
+## Deployment
+
+GitHub Pages publishes from `main` at the repository root. Commit and push focused changes, then allow Pages to deploy. Stylesheets and scripts use versioned URLs to reduce stale-cache issues. Hard-refresh if an old page persists.
+
+## Credits and acknowledgments
+
+Built with plain HTML, CSS, and JavaScript with Codex assistance. Skills descriptions acknowledge beginner-level, assisted experience. Space Race was adapted from the supplied Python/Pyglet project, using its ship artwork. Pong and Breakout were adapted from supplied HTML/JavaScript examples; their original authors and license details were not supplied. The Home background was generated with OpenAI image generation. Interests images were supplied by the portfolio owner; the Minecraft artwork depicts Minecraft branding. The favicon is a cream MM monogram on forest green.

@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Education of Maharab Mohammed, an Electrical and Computer Engineering Technology student at NJIT.">
   <title>Education | Maharab Mohammed</title>
-  <link rel="stylesheet" href="css/styles.css?v=skills-1">
+  <link rel="stylesheet" href="css/styles.css?v=site-controls-1">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <script src="js/main.js?v=site-controls-1" defer></script>
 </head>
 <body class="compact-page centered-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrapper">
-    <nav aria-label="Main navigation">
+    <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" hidden>Menu</button>
+    <nav id="site-navigation" aria-label="Main navigation">
       <a href="index.html?v=centered-home-1">Home</a>
       <a href="about.html">About Me</a>
       <a href="education.html" aria-current="page">Education</a>
@@ -20,6 +22,7 @@
       <a href="skills.html">Skills</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-pressed="false" hidden>Light mode</button>
   </header>
   <main id="main" class="content-page wrapper">
     <section id="education" class="education rounded-panel" aria-labelledby="education-heading">

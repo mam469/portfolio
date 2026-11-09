@@ -2,6 +2,14 @@
 
 Live site: https://mam469.github.io/portfolio/
 
+## Skills text removal — November 9, 2026
+
+| ID | Testing | Steps | Expected | Result |
+| :--- | :--- | :--- | :--- | :--- |
+| S1 | Requested paragraph removal | Inspect the skills.html diff and run git diff --check. | Only the requested introductory paragraph is removed; no whitespace errors. | Pass |
+| S2 | Skills browser regression | Open Skills in VS Code Live Preview at phone and laptop widths; test keyboard, links, images, and console; also open through file://. | Content and controls remain usable without errors. | Not run |
+| S3 | Live Skills update | Open https://mam469.github.io/portfolio/skills.html after deployment. | Requested paragraph is absent. | Not run |
+
 | ID | Testing | Steps | Expected | Result |
 | :--- | :--- | :--- | :--- | :--- |
 | T1 | index.html navigation | Open index.html; click each of the seven navigation links. | Each link loads its corresponding page. | Pass |
